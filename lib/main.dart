@@ -6,22 +6,23 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
-@override
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return MyAppState();
+    return _MyAppState();
   }
 }
 
-class MyAppState extends State<MyApp> {
-  var questionIndex = 0;
+// _ で private
+class _MyAppState extends State<MyApp> {
+  // _ で private
+  var _questionIndex = 0;
 
   void answerQuestion() {
     setState(() {
-      questionIndex = questionIndex ^ 1;
+      _questionIndex = _questionIndex ^ 1;
     });
-    print(questionIndex);
+    print(_questionIndex);
   }
 
   Widget build(BuildContext context) {
@@ -36,7 +37,7 @@ class MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: <Widget>[
-            Text(questions[questionIndex]),
+            Text(questions[_questionIndex]),
             // RaisedButton
             ElevatedButton(
               child: Text('Answoer 1'),
