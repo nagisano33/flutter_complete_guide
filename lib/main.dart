@@ -64,6 +64,13 @@ class _MyAppState extends State<MyApp> {
     print(_questionIndex);
   }
 
+  void _resetQuiz() {
+    setState(() {
+      _questionIndex = 0;
+      _totalScore = 0;
+    });
+  }
+
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
@@ -75,7 +82,7 @@ class _MyAppState extends State<MyApp> {
                   questions: questions,
                   answerQuestion: _answerQuestion,
                   questionIndex: _questionIndex)
-              : Result(_totalScore)),
+              : Result(_totalScore, _resetQuiz)),
     );
   }
 }
